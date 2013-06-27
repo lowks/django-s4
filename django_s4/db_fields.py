@@ -23,6 +23,6 @@ class S4DriveFileField(models.Field):
 
     def south_field_triple(self):
         from south.modelsinspector import introspector
-        field_class = "django.db.models.CharField"
+        field_class = "django.db.models.TextField"
         args, kwargs = introspector(self)
         return (field_class, args, kwargs)
