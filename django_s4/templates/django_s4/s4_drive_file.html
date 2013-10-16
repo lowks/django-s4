@@ -11,9 +11,16 @@ $(document).ready(function () {
             $("#path_{{name}}").attr("href", "{{DRIVE_STATIC_URL}}"+data);
         })
     })
+    $("#remove_{{name}}").click(function(){
+        $("#input_{{name}}").val("");
+        $("#path_{{name}}").html("");
+        $("#path_{{name}}").removeAttr("href");
+    })
 })
+
 </script>
 <input type="file" id="file_{{name}}">
 <a id="upload_{{name}}" class="button">upload</a>
 <input type="hidden" name="{{name}}" id="input_{{name}}" value="{{value}}">
 <a href="{{DRIVE_STATIC_URL}}{{value}}" id="path_{{name}}">{{value}}</a>
+<a id="remove_{{name}}" class="button">remove</a>
