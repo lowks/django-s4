@@ -1,13 +1,20 @@
 // s4 javascript utils (drive utils)
 // author: Ondrej Sika, http://ondrejsika.com
 
-function s4Upload(uri, file, callback) {
-   var xhr = new XMLHttpRequest();
-   var fd = new FormData();
-   xhr.open("POST", uri, true);
-   xhr.onreadystatechange = function() {if (xhr.readyState == 4 && xhr.status == 200) {callback(xhr.responseText);}};
-   fd.append('file', file);
-   xhr.send(fd);
+function s4Upload(uri, file, callback, error) {
+    xhr = new XMLHttpRequest();
+    fd = new FormData();
+    xhr.open("POST", uri, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            callback(xhr.responseText);
+        }
+        if (xhr.readyState == 4 && xhr.status != 200) {
+            error(xhr.status, xhr.responseText, xhr)
+        }
+    }
+    fd.append('file', file);
+    xhr.send(fd);
 }
 
 function s4MultiUpload(uri, files, callback, loopInterval) {
