@@ -3,8 +3,8 @@
 
 function s4Upload(uri, file, callback, error, async) {
     if (async === undefined) async = true;
-    xhr = new XMLHttpRequest();
-    fd = new FormData();
+    var xhr = new XMLHttpRequest();
+    var fd = new FormData();
     xhr.open("POST", uri, async);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -22,17 +22,20 @@ function s4Upload(uri, file, callback, error, async) {
 function s4MultiUpload(uri, files, callback, loopInterval) {
     if (loopInterval == undefined) loopInterval = 300;
     var responses = []; 
-    for (var i = 0; i < files.length; i++) {
+    for (i = 0; i < files.length; i++) {
+        console.log("a", i, files[i]);
         s4Upload(uri, files[i], function(data){
             responses.push(data);
+            console.log(responses);
         }, function(a, b, c) {
-            console.warning(a, b, c);
-        }, false); 
+            console.warn(a, b, c);
+        }); 
     };  
-    var loop = setInterval(function(){
-        if (responses.length == files.length) {
-            clearInterval(loop);
+    loop = setInterval(function(){
+        console.log(responses.length, files.length);
+        if (responses.length >= files.length) {
             callback(responses);
+            clearInterval(loop);
         }   
     }, loopInterval);
 }
