@@ -25,7 +25,9 @@ function s4MultiUpload(uri, files, callback, loopInterval) {
     for (var i = 0; i < files.length; i++) {
         s4Upload(uri, files[i], function(data){
             responses.push(data);
-        }); 
+        }, function(a, b, c) {
+            console.warning(a, b, c);
+        }, false); 
     };  
     var loop = setInterval(function(){
         if (responses.length == files.length) {
