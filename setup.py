@@ -7,7 +7,7 @@ setup(
     name = "django-s4",
     version = "1.2.3",
     url = 'https://github.com/sikaondrej/django-s4/',
-    license = 'GNU LGPL v.3',
+    license = 'MIT',
     description = "",
     author = 'Ondrej Sika',
     author_email = 'ondrej@ondrejsika.com',
