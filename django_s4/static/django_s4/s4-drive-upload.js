@@ -21,7 +21,7 @@ function s4Upload(uri, file, callback, error, async) {
 
 function s4MultiUpload(uri, files, callback, loopInterval) {
     if (loopInterval == undefined) loopInterval = 300;
-    var responses = []; 
+    var responses = [];
     for (i = 0; i < files.length; i++) {
         console.log("a", i, files[i]);
         s4Upload(uri, files[i], function(data){
@@ -29,13 +29,13 @@ function s4MultiUpload(uri, files, callback, loopInterval) {
             console.log(responses);
         }, function(a, b, c) {
             console.warn(a, b, c);
-        }); 
-    };  
+        });
+    };
     loop = setInterval(function(){
         console.log(responses.length, files.length);
         if (responses.length >= files.length) {
             callback(responses);
             clearInterval(loop);
-        }   
+        }
     }, loopInterval);
 }
