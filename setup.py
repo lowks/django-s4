@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "django-s4",
-    version = "1.2.3",
+    version = "1.2.4",
     url = 'https://github.com/sikaondrej/django-s4/',
     license = 'MIT',
     description = "",
