@@ -19,3 +19,10 @@ class S4DriveFileWidget(Widget):
             "url": self.url,
             "value": value,
         }))
+
+    class Media:
+        js = (
+            settings.STATIC_URL + 'django_s4/jquery-1.9.1.min.js',
+            settings.STATIC_URL + 'django_s4/s4-drive-upload.js',
+            settings.STATIC_URL + 'django_s4/s4-drive-upload-django-admin.js',
+        )
