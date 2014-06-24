@@ -1,7 +1,7 @@
 django-s4
 =========
 
-Librari for s4
+Library for s4
 
 Authors
 -------
