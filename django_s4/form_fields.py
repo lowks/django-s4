@@ -3,6 +3,7 @@ from django.db.models import get_model
 
 import widgets
 
+
 class S4DriveFileField(forms.CharField):
     def __init__(self, url, drive_static_url, **kwargs):
         defaults = {

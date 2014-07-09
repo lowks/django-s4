@@ -12,13 +12,14 @@ class S4DriveFileWidget(Widget):
 
     def render(self, name, value, attrs=None):
         if not value: value = ""
-        return mark_safe(loader.render_to_string("django_s4/s4_drive_file.html", {
-            "STATIC_URL": settings.STATIC_URL,
-            "DRIVE_STATIC_URL": self.drive_static_url,
-            "name": name,
-            "url": self.url,
-            "value": value,
-        }))
+        return mark_safe(loader.render_to_string(
+            "django_s4/s4_drive_file.html", {
+                "STATIC_URL": settings.STATIC_URL,
+                "DRIVE_STATIC_URL": self.drive_static_url,
+                "name": name,
+                "url": self.url,
+                "value": value,
+            }))
 
     class Media:
         js = (

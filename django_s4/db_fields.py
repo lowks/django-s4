@@ -3,6 +3,7 @@ from django.db import models
 from conf import DRIVE_UPLOAD_URL, DRIVE_STATIC_URL
 import form_fields
 
+
 class S4DriveFileField(models.Field):
     def get_internal_type(self):
         return "TextField"
