@@ -8,7 +8,7 @@ setup(
     version = "1.2.4",
     url = 'https://github.com/sikaondrej/django-s4/',
     license = 'MIT',
-    description = "",
+    description =x "Django s4 utils",
     author = 'Ondrej Sika',
     author_email = 'ondrej@ondrejsika.com',
     packages = find_packages(),
